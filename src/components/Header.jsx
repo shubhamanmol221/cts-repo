@@ -63,7 +63,7 @@ export function Header({ onBackToHome, currentEdition, setCurrentEdition }) {
                           currentEdition === "bangalore" ? "bg-green-100 text-green-800 font-semibold" : "text-green-700"
                         }`}
                       >
-                        View Bangalore Edition
+                        CTS 2025 Bangalore Edition
                       </button>
                       <button
                         onClick={() => handleEditionChange("vizag")}
@@ -71,7 +71,7 @@ export function Header({ onBackToHome, currentEdition, setCurrentEdition }) {
                           currentEdition === "vizag" ? "bg-green-100 text-green-800 font-semibold" : "text-green-700"
                         }`}
                       >
-                        View Vizag Edition
+                        CTS 2025 Vizag Edition
                       </button>
                     </div>
                   </>

@@ -352,7 +352,7 @@ function App() {
       {currentEdition === "bangalore" && (
         <>
           <PosterSection currentEdition={currentEdition} />
-          <StatsSection />
+          {/* <StatsSection /> */}
         </>
       )}
 
