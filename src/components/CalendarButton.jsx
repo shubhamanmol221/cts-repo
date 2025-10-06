@@ -14,8 +14,8 @@ export function CalendarButton({ className = "", edition = "bangalore" }) {
       location: isVizagEdition
         ? "SB Square Hotel & Banquet, Visakhapatnam, Andhra Pradesh"
         : "Bangalore, Karnataka",
-      startDate: isVizagEdition ? "2025-08-22T09:30:00" : "2025-11-07T09:30:00", // Vizag: Aug 22, Bangalore: Nov 7
-      endDate: isVizagEdition ? "2025-08-22T18:00:00" : "2025-11-07T18:00:00",   // Vizag: Aug 22, Bangalore: Nov 7
+      startDate: isVizagEdition ? "2025-08-22T09:30:00" : "2025-11-07T09:00:00", // Vizag: Aug 22 9:30 AM, Bangalore: Nov 7 9:00 AM
+      endDate: isVizagEdition ? "2025-08-22T18:00:00" : "2025-11-07T16:00:00",   // Vizag: Aug 22 6:00 PM, Bangalore: Nov 7 4:00 PM
       timezone: "Asia/Kolkata",
     }
 

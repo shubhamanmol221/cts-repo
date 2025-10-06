@@ -78,27 +78,34 @@ export function Header({ onBackToHome, currentEdition, setCurrentEdition }) {
                 )}
               </div>
 
-              <a
-                href="#speakers"
-                onClick={(e) => handleLinkClick(e, "speakers")}
-                className="text-green-700 hover:text-green-800 font-medium transition-colors"
-              >
-                Speakers
-              </a>
-              <a
-                href="#sessions"
-                onClick={(e) => handleLinkClick(e, "sessions")}
-                className="text-green-700 hover:text-green-800 font-medium transition-colors"
-              >
-                Sessions
-              </a>
-              <a
-                href="#panel-discussion"
-                onClick={(e) => handleLinkClick(e, "panel-discussion")}
-                className="text-green-700 hover:text-green-800 font-medium transition-colors"
-              >
-                Panel Discussion
-              </a>
+              {/* Vizag Edition: Show all navigation links */}
+              {currentEdition === "vizag" && (
+                <>
+                  <a
+                    href="#speakers"
+                    onClick={(e) => handleLinkClick(e, "speakers")}
+                    className="text-green-700 hover:text-green-800 font-medium transition-colors"
+                  >
+                    Speakers
+                  </a>
+                  <a
+                    href="#sessions"
+                    onClick={(e) => handleLinkClick(e, "sessions")}
+                    className="text-green-700 hover:text-green-800 font-medium transition-colors"
+                  >
+                    Sessions
+                  </a>
+                  <a
+                    href="#panel-discussion"
+                    onClick={(e) => handleLinkClick(e, "panel-discussion")}
+                    className="text-green-700 hover:text-green-800 font-medium transition-colors"
+                  >
+                    Panel Discussion
+                  </a>
+                </>
+              )}
+
+              {/* Contact - Always visible */}
               <a
                 href="#contact"
                 onClick={(e) => handleLinkClick(e, "contact")}
@@ -169,34 +176,34 @@ export function Header({ onBackToHome, currentEdition, setCurrentEdition }) {
                   )}
                 </div>
 
-                <a
-                  href="#speakers"
-                  onClick={(e) => handleLinkClick(e, "speakers")}
-                  className="text-lg font-medium text-green-800 hover:text-green-600 cursor-pointer transition-colors"
-                >
-                  Speakers
-                </a>
-                <a
-                  href="#sessions"
-                  onClick={(e) => handleLinkClick(e, "sessions")}
-                  className="text-lg font-medium text-green-800 hover:text-green-600 cursor-pointer transition-colors"
-                >
-                  Sessions
-                </a>
-                <a
-                  href="#panel-discussion"
-                  onClick={(e) => handleLinkClick(e, "panel-discussion")}
-                  className="text-lg font-medium text-green-800 hover:text-green-600 cursor-pointer transition-colors"
-                >
-                  Panel Discussion
-                </a>
-                <a
-                  href="#venue"
-                  onClick={(e) => handleLinkClick(e, "venue")}
-                  className="text-lg font-medium text-green-800 hover:text-green-600 cursor-pointer transition-colors"
-                >
-                  Venue
-                </a>
+                {/* Vizag Edition: Show all navigation links */}
+                {currentEdition === "vizag" && (
+                  <>
+                    <a
+                      href="#speakers"
+                      onClick={(e) => handleLinkClick(e, "speakers")}
+                      className="text-lg font-medium text-green-800 hover:text-green-600 cursor-pointer transition-colors"
+                    >
+                      Speakers
+                    </a>
+                    <a
+                      href="#sessions"
+                      onClick={(e) => handleLinkClick(e, "sessions")}
+                      className="text-lg font-medium text-green-800 hover:text-green-600 cursor-pointer transition-colors"
+                    >
+                      Sessions
+                    </a>
+                    <a
+                      href="#panel-discussion"
+                      onClick={(e) => handleLinkClick(e, "panel-discussion")}
+                      className="text-lg font-medium text-green-800 hover:text-green-600 cursor-pointer transition-colors"
+                    >
+                      Panel Discussion
+                    </a>
+                  </>
+                )}
+
+                {/* Contact - Always visible */}
                 <a
                   href="#contact"
                   onClick={(e) => handleLinkClick(e, "contact")}

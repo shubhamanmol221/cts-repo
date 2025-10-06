@@ -8,7 +8,7 @@ export function PosterSection({ currentEdition = "bangalore" }) {
   const video = {
     src: "https://www.youtube.com/embed/2112-BiWqrA",
     title: isBangaloreEdition
-      ? "Vizag - Candela Technology Summit 2025 Event Highlights Reel"
+      ? "Vizag Edition - Candela Technology Summit 2025"
       : "Candela Technology Summit 2025 Event Highlights Reel",
     description: "Experience the cutting-edge technology and networking opportunities at the Candela Technology Summit.",
   }
@@ -18,7 +18,9 @@ export function PosterSection({ currentEdition = "bangalore" }) {
       <div className="container mx-auto px-4">
         <AnimatedSection>
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-green-800 mb-4">Event Highlights</h2>
+            <h2 className="text-4xl font-bold text-green-800 mb-4">
+              {isBangaloreEdition ? "Previous Edition Highlights" : "Event Highlights"}
+            </h2>
             <p className="text-xl text-green-600 max-w-2xl mx-auto">{video.description}</p>
           </div>
         </AnimatedSection>

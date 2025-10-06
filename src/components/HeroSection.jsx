@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { Calendar, Clock, MapPin, Play, Pause, Radio, X, FileText, Download } from "lucide-react"
 import { CalendarButton } from "./CalendarButton"
 
@@ -11,6 +11,16 @@ export function HeroSection({ currentEdition = "bangalore" }) {
   const videoRef = useRef(null)
 
   const isVizagEdition = currentEdition === "vizag"
+
+  // Auto-close notification after 3 seconds
+  useEffect(() => {
+    if (showNotification) {
+      const timer = setTimeout(() => {
+        setShowNotification(false)
+      }, 3000)
+      return () => clearTimeout(timer)
+    }
+  }, [showNotification])
 
   const toggleVideo = () => {
     if (videoRef.current) {
@@ -41,6 +51,11 @@ export function HeroSection({ currentEdition = "bangalore" }) {
       // Bangalore Edition: Show coming soon
       setShowNotification(true)
     }
+  }
+
+  const handleRegistrationClick = () => {
+    // Bangalore Edition only: Show coming soon
+    setShowNotification(true)
   }
 
   return (
@@ -94,16 +109,16 @@ export function HeroSection({ currentEdition = "bangalore" }) {
 
         {/* Coming Soon Notification - For Bangalore Edition */}
         {!isVizagEdition && showNotification && (
-          <div className="absolute top-24 left-1/2 -translate-x-1/2 z-40 w-11/12 max-w-md bg-green-600/90 backdrop-blur-md text-white p-4 rounded-xl shadow-2xl border border-white/20 animate-fade-in-down">
+          <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[9999] w-11/12 max-w-md bg-green-600/90 backdrop-blur-md text-white p-4 rounded-xl shadow-2xl border border-white/20 animate-fade-in-down">
             <div className="flex items-start">
               <div className="flex-shrink-0">
                 <Radio className="w-6 h-6 text-green-200" />
               </div>
               <div className="ml-3 flex-1">
                 <p className="text-base font-semibold">Coming Soon</p>
-                <p className="text-sm mt-1">
+                {/* <p className="text-sm mt-1">
                   This feature will be available soon. Stay tuned!
-                </p>
+                </p> */}
               </div>
               <button
                 onClick={() => setShowNotification(false)}
@@ -153,7 +168,9 @@ export function HeroSection({ currentEdition = "bangalore" }) {
             </div>
             <div className="flex items-center gap-2 text-white bg-black/30 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md border border-white/20">
               <Clock className="w-5 h-5" />
-              <span className="font-medium">9:30 AM – 6:00 PM IST</span>
+              <span className="font-medium">
+                {isVizagEdition ? "9:30 AM – 6:00 PM IST" : "9:00 AM – 4:00 PM IST"}
+              </span>
             </div>
             <div className="flex items-center gap-2 text-white bg-black/30 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md border border-white/20">
               <MapPin className="w-5 h-5" />
@@ -183,6 +200,16 @@ export function HeroSection({ currentEdition = "bangalore" }) {
               edition={currentEdition}
               className="font-medium !h-auto !min-w-min flex items-center gap-2 text-white bg-black/30 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md border border-white/20 hover:bg-white/20"
             />
+
+            {!isVizagEdition && (
+              <button
+                onClick={handleRegistrationClick}
+                className="flex items-center gap-2 text-white bg-black/30 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md border border-white/20 hover:bg-white/20 transition-colors duration-300"
+              >
+                <FileText className="w-5 h-5" />
+                <span className="font-medium">Registration</span>
+              </button>
+            )}
           </div>
         </div>
       </section>
