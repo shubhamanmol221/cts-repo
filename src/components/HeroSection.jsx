@@ -194,7 +194,7 @@ export function HeroSection({ currentEdition = "bangalore" }) {
                 <span className="block text-green-300">Summit 2025</span>
               </h1>
               <div className="flex justify-center mb-4">
-                <span className="inline-flex items-center gap-2 backdrop-blur-sm px-4 py-2 rounded-full font-semibold shadow-lg border border-white/30 text-white text-base" style={{ backgroundColor: '#16a34a' }}>
+                <span className="inline-flex items-center gap-2 backdrop-blur-sm px-4 py-2 rounded-full font-semibold shadow-lg border border-white/30 text-white text-base" style={{ backgroundColor: '#3b82f6' }}>
                   <MapPin className="w-5 h-5 text-red-500" />
                   {isVizagEdition ? "Vizag Edition" : "Bangalore Edition"}
                 </span>

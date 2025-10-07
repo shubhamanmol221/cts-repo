@@ -86,8 +86,8 @@ export function ContactSection({ currentEdition = "bangalore" }) {
               </>
             ) : (
               <>
-                <p className="text-xl text-green-600">This event is FREE for anyone attending online or offline.</p>
-                <p className="text-xl text-green-600 mt-2">Register now using the Register Now button below to secure your spot!</p>
+                <p className="text-xl text-green-600">This event is FREE for anyone attending online or in-person</p>
+                <p className="text-xl text-green-600 mt-2">Secure your spot at the event!</p>
               </>
             )}
           </div>
