@@ -53,10 +53,10 @@ export function HeroSection({ currentEdition = "bangalore" }) {
     }
   }
 
-  const handleRegistrationClick = () => {
-    // Bangalore Edition only: Show coming soon
-    setShowNotification(true)
-  }
+  // const handleRegistrationClick = () => {
+  //   // Bangalore Edition only: Show coming soon
+  //   setShowNotification(true)
+  // }
 
   return (
     <>
@@ -207,7 +207,7 @@ export function HeroSection({ currentEdition = "bangalore" }) {
               className="font-medium !h-auto !min-w-min flex items-center gap-2 text-white bg-black/30 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md border border-white/20 hover:bg-white/20"
             />
 
-            {!isVizagEdition && (
+            {/* {!isVizagEdition && (
               <button
                 onClick={handleRegistrationClick}
                 className="flex items-center gap-2 text-white bg-black/30 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md border border-white/20 hover:bg-white/20 transition-colors duration-300"
@@ -215,7 +215,7 @@ export function HeroSection({ currentEdition = "bangalore" }) {
                 <FileText className="w-5 h-5" />
                 <span className="font-medium">Registration</span>
               </button>
-            )}
+            )} */}
           </div>
         </div>
       </section>
