@@ -148,11 +148,17 @@ export function HeroSection({ currentEdition = "bangalore" }) {
           </div>
 
           <div className="bg-white/10 backdrop-blur-md border-2 border-white/30 rounded-2xl p-8 md:p-12 shadow-2xl hover:bg-white/15 hover:border-white/40 transition-all duration-500 hover:scale-[1.02] w-full mb-8">
-            <div className="pt-10">
+            <div className="pt-4">
               <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg animate-fade-in-up animation-delay-200">
                 Candela Technology
                 <span className="block text-green-300">Summit 2025</span>
               </h1>
+              <div className="flex justify-center mb-4">
+                <span className="inline-flex items-center gap-2 backdrop-blur-sm px-4 py-2 rounded-full font-semibold shadow-lg border border-white/30 text-gray-800 text-base" style={{ backgroundColor: '#86EFAC' }}>
+                  <MapPin className="w-5 h-5 text-red-500" />
+                  {isVizagEdition ? "Vizag Edition" : "Bangalore Edition"}
+                </span>
+              </div>
               <p className="text-xl text-white/90 leading-relaxed drop-shadow-md animate-fade-in-up animation-delay-400">
                 Join us for a deep dive into cutting-edge wireless technology, evolving Wi-Fi standards, and advanced testing strategies driving real-world user experience.
               </p>
