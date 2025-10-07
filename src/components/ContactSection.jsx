@@ -70,7 +70,7 @@ export function ContactSection({ currentEdition = "bangalore" }) {
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold text-green-800 mb-6">Coming Soon</h2>
               <p className="text-xl text-green-600 mb-4">
-                Speakers • Sessions • Panel Discussion .....
+                Speakers • Sessions • Panel Discussion
               </p>
             </div>
           </AnimatedSection>
