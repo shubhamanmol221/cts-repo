@@ -356,7 +356,7 @@ function App() {
         </>
       )}
 
-      <ContactSection />
+      <ContactSection currentEdition={currentEdition} />
       <Footer />
     </div>
   )
