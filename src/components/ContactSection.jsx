@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react"
-import { Mail, UserPlus, X, Radio, FileText } from "lucide-react"
+import { Mail, UserPlus, X, FileText } from "lucide-react"
 import { AnimatedSection } from "./AnimatedSection"
 import { Card, CardContent } from "./Card"
 
 export function ContactSection({ currentEdition = "bangalore" }) {
   const isVizagEdition = currentEdition === "vizag"
   const [showNotification, setShowNotification] = useState(false)
+  const [showRegistrationForm, setShowRegistrationForm] = useState(false)
+  const [isFormLoading, setIsFormLoading] = useState(true)
 
   // Auto-close notification after 3 seconds
   useEffect(() => {
@@ -18,33 +20,62 @@ export function ContactSection({ currentEdition = "bangalore" }) {
   }, [showNotification])
 
   const handleRegisterClick = () => {
-    setShowNotification(true)
+    setShowRegistrationForm(true)
+    setIsFormLoading(true)
   }
 
   return (
     <section id="contact" className="py-20 bg-white relative">
-      {/* Coming Soon Notification - For Bangalore Edition */}
-      {!isVizagEdition && showNotification && (
-        <div className="fixed top-24 left-1/2 -translate-x-1/2 z-[9999] w-11/12 max-w-md bg-green-600/90 backdrop-blur-md text-white p-4 rounded-xl shadow-2xl border border-white/20 animate-fade-in-down">
-          <div className="flex items-start">
-            <div className="flex-shrink-0">
-              <Radio className="w-6 h-6 text-green-200" />
+      {/* Registration Form Modal - For Bangalore Edition */}
+      {!isVizagEdition && showRegistrationForm && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
+          <div className="bg-white/95 rounded-2xl shadow-2xl w-full max-w-4xl h-[90vh] flex flex-col overflow-hidden">
+            <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50/80">
+              <h3 className="text-lg font-semibold text-gray-800">Registration Form</h3>
+              <button
+                onClick={() => setShowRegistrationForm(false)}
+                className="text-gray-500 hover:text-gray-800 hover:bg-gray-200 p-2 rounded-full"
+                aria-label="Close registration form"
+              >
+                <X className="w-6 h-6" />
+              </button>
             </div>
-            <div className="ml-3 flex-1">
-              <p className="text-base font-semibold">Coming Soon</p>
+
+            <div className="flex-grow relative">
+              {isFormLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-white/80">
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="w-12 h-12 border-4 border-green-600 border-t-transparent rounded-full animate-spin"></div>
+                    <p className="text-gray-600 font-medium">Loading registration form...</p>
+                  </div>
+                </div>
+              )}
+              <iframe
+                src="https://forms.gle/hoiNBEgdsSErKNVY7"
+                title="Registration Form"
+                width="100%"
+                height="100%"
+                className="border-none"
+                onLoad={() => setIsFormLoading(false)}
+              ></iframe>
             </div>
-            <button
-              onClick={() => setShowNotification(false)}
-              className="ml-4 p-1 rounded-md hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white"
-              aria-label="Close notification"
-            >
-              <X className="w-5 h-5" />
-            </button>
           </div>
         </div>
       )}
 
       <div className="container mx-auto px-4">
+        {/* Coming Soon Section - For Bangalore Edition Only */}
+        {!isVizagEdition && (
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold text-green-800 mb-6">Coming Soon</h2>
+              <p className="text-xl text-green-600 mb-4">
+                Speakers • Sessions • Panel Discussion .....
+              </p>
+            </div>
+          </AnimatedSection>
+        )}
+
         <AnimatedSection>
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-green-800 mb-4">Get in Touch</h2>

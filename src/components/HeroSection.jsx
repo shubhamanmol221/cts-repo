@@ -8,6 +8,8 @@ export function HeroSection({ currentEdition = "bangalore" }) {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true)
   const [showNotification, setShowNotification] = useState(false)
   const [showAgenda, setShowAgenda] = useState(false) // State for PDF modal
+  const [showRegistrationForm, setShowRegistrationForm] = useState(false) // State for Registration Form modal
+  const [isFormLoading, setIsFormLoading] = useState(true) // State for form loading
   const videoRef = useRef(null)
 
   const isVizagEdition = currentEdition === "vizag"
@@ -54,8 +56,9 @@ export function HeroSection({ currentEdition = "bangalore" }) {
   }
 
   const handleRegistrationClick = () => {
-    // Bangalore Edition only: Show coming soon
-    setShowNotification(true)
+    // Bangalore Edition: Show registration form popup
+    setShowRegistrationForm(true)
+    setIsFormLoading(true)
   }
 
   return (
@@ -92,6 +95,43 @@ export function HeroSection({ currentEdition = "bangalore" }) {
                 width="100%"
                 height="100%"
                 className="border-none"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Registration Form Modal - For Bangalore Edition */}
+      {!isVizagEdition && showRegistrationForm && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
+          <div className="bg-white/95 rounded-2xl shadow-2xl w-full max-w-4xl h-[90vh] flex flex-col overflow-hidden">
+            <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gray-50/80">
+              <h3 className="text-lg font-semibold text-gray-800">Registration Form</h3>
+              <button
+                onClick={() => setShowRegistrationForm(false)}
+                className="text-gray-500 hover:text-gray-800 hover:bg-gray-200 p-2 rounded-full"
+                aria-label="Close registration form"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            <div className="flex-grow relative">
+              {isFormLoading && (
+                <div className="absolute inset-0 flex items-center justify-center bg-white/80">
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="w-12 h-12 border-4 border-green-600 border-t-transparent rounded-full animate-spin"></div>
+                    <p className="text-gray-600 font-medium">Loading registration form...</p>
+                  </div>
+                </div>
+              )}
+              <iframe
+                src="https://forms.gle/hoiNBEgdsSErKNVY7"
+                title="Registration Form"
+                width="100%"
+                height="100%"
+                className="border-none"
+                onLoad={() => setIsFormLoading(false)}
               ></iframe>
             </div>
           </div>
@@ -154,7 +194,7 @@ export function HeroSection({ currentEdition = "bangalore" }) {
                 <span className="block text-green-300">Summit 2025</span>
               </h1>
               <div className="flex justify-center mb-4">
-                <span className="inline-flex items-center gap-2 backdrop-blur-sm px-4 py-2 rounded-full font-semibold shadow-lg border border-white/30 text-gray-800 text-base" style={{ backgroundColor: '#86EFAC' }}>
+                <span className="inline-flex items-center gap-2 backdrop-blur-sm px-4 py-2 rounded-full font-semibold shadow-lg border border-white/30 text-white text-base" style={{ backgroundColor: '#16a34a' }}>
                   <MapPin className="w-5 h-5 text-red-500" />
                   {isVizagEdition ? "Vizag Edition" : "Bangalore Edition"}
                 </span>

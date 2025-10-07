@@ -348,7 +348,7 @@ function App() {
         </>
       )}
 
-      {/* Bangalore Edition: Show PosterSection and StatsSection */}
+      {/* Bangalore Edition: Show PosterSection */}
       {currentEdition === "bangalore" && (
         <>
           <PosterSection currentEdition={currentEdition} />
